@@ -1,3 +1,5 @@
+# 스도쿠 문제풀이 알고리즘
+
 import sys
 sys.stdin = open("input.txt", "r")
 
