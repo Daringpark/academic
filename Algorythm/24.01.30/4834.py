@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("input.txt", "r")
+sys.stdin = open("input_4834.txt", "r")
 
 T = int(input())
 
@@ -18,9 +18,6 @@ for test_case in range(1, T+1):
     
     for idx in range(N): # N을 필수적으로 사용한 경우
         zero_nine[lst[idx]] += 1
-
-
-
 
     amount = 0
     for i in range(len(zero_nine)) :
