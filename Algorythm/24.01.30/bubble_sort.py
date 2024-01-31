@@ -2,7 +2,7 @@ Data = [1,4,5,6,7,8,5,6,1,2,0]
 K = max(Data) + 1 # 9
 N = len(Data) # 11
 
-## 나의 풀이
+## 나의 풀이 Bubble Sorting
 
 # sorting for reading
 # for i in range(N) :
@@ -11,9 +11,9 @@ N = len(Data) # 11
 #             Data[i], Data[j] = Data[j], Data[i]
 # print(Data)
 
-# counting
-cnt_list = [0] * N
-for number in Data:
+# 1. counting
+cnt_list = [0] * N # 데이터의 양만큼의 카운트 리스트를 만들어 준다.
+for number in Data: # 데이터의 번호의 인덱스에 카운트를 올려줬다.
     cnt_list[number] += 1
 print(cnt_list)
 

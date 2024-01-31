@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68e411f7-64c4-40f3-98c6-e22ef759102f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../24.01.31/1209.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/1209.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/2d_array_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/2d_array_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/2d_array_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/4837.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/4837.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/input_p1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/input_p2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/input_p3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/input_p4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/input_s1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/subset_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24.01.31/subset_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/4831.py" beforeDir="false" afterPath="$PROJECT_DIR$/4831.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4834.py" beforeDir="false" afterPath="$PROJECT_DIR$/4834.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/counting_sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/bubble_sort.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2bhCgcYtxPna1g72p9g9hNJtxT3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68e411f7-64c4-40f3-98c6-e22ef759102f" name="Default Changelist" comment="" />
+      <created>1706658037791</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706658037791</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
