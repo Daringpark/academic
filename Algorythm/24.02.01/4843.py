@@ -61,6 +61,5 @@ else:
 #     print(f'#{tc}', *numbers[:10])
 
 
-
     print(f"#{t + 1}", *numbers[:10])
 
