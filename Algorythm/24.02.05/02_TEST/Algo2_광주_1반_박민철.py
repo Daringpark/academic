@@ -18,7 +18,7 @@ for tc in range(1, T+1):
             pre = space[pos]
             flag = 1
         if flag and space[pos] > 0: # flag와 양수 값이 나올 경우, 추가 이동
-            pos += space[pos] - (pre)
+            pos += space[pos] - pre
             flag = 0 # flag 초기화
         else : # flag가 꺼진 경우, 일반 이동 (전진, 후진)
             pos += space[pos]
