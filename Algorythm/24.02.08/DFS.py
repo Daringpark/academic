@@ -21,6 +21,7 @@ def solve():
         if node not in visited:
             visited.append(node)
             unvisited.extend(graph[node])
+    #최종 출력 결정
     if start in visited and goal in visited:
         return 1
     else: return 0

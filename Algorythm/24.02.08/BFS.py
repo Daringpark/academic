@@ -1,10 +1,6 @@
 import sys
 sys.stdin = open('bfs.txt.')
 
-
-
-
-
 def bfs(graph, start_node):
     visit = list()
     queue = list()
