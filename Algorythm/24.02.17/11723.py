@@ -1,8 +1,10 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('11723.txt')
 
 import sys # 59% 시간 초과
 import copy
+
+import sys
 input = sys.stdin.readline
 N = int(input())
 S = set()
@@ -34,3 +36,4 @@ def solve():
             else:
                 S = set()
 solve()
+
