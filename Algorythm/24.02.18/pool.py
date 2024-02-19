@@ -3,6 +3,10 @@ import sys
 sys.stdout = open('output.txt', 'w')
 import math
 
+def find_ball():
+    pass
+
+
 def find_path():
     global pos
     global Hole
@@ -29,7 +33,7 @@ def get_angle():
         pass
     return degree
 
-pos = [50,50]
+pos = [50,50] # 내 공 위치
 matrix = [[0] * 262 for _ in range(129)]
 Hole = [[-3,-3], [-3,125], [-3,258], [130, -3], [130, 125], [130, 258]]
 Ball = [117, 32]
