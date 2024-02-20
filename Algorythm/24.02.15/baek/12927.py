@@ -1,5 +1,5 @@
 import sys
-# sys.stdin = open('switch.txt')
+sys.stdin = open('switch.txt')
 
 
 # light = 'YNYNYNYN'
