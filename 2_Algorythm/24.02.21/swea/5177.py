@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("input_5117.txt")
+sys.stdin = open("input_5177.txt")
 
 def min_heap(data):
     global pos
