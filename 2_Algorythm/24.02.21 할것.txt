@@ -7,17 +7,9 @@ https://www.acmicpc.net/problem/1260
 https://www.acmicpc.net/problem/2491
 # 연속된 수에서 같거나 큰 쪽으로 최대 수열의 길이를 구하기
 
-11723 : 자료구조 집합 set
-https://www.acmicpc.net/problem/11723
-# 시간 초과 해결하기
-
 2477 : 참외밭
 https://www.acmicpc.net/problem/2477
 # 구현, 기하학 (넓이 계산)
-
-추가) 브루트포스 연습
-일곱난쟁이
-https://www.acmicpc.net/problem/3040
 
 <보류>
 16957 : 체스판 위의 공 # DP
