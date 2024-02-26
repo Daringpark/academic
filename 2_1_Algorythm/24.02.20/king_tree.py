@@ -9,12 +9,12 @@ def pre_order(root):
     #     pre_order(Tree[root][1])
     if Tree[root]:
         for i in range(len(Tree[root])): # 이진 트리가 아닌 경우, 자식 노드를 다 순회 하면서 확인
-            pre_order(Tree[root][i])
+            pre_order(Tree[root][i]) # LRV
     print(root)
 
 N = int(input())
 arr = list(map(int, input().split()))
-Tree = [[] for _ in range(N+1)] # 간선의 개수만큼 2차원 배열로 만든다.
+Tree = [[] for _ in range(max(arr)+1)] # 간선의 개수만큼 2차원 배열로 만든다.
 
 
 for i in range(len(arr)//2):

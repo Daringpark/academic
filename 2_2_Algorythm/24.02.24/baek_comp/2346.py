@@ -10,7 +10,7 @@ while Balloons:
     idx, amount = Balloons.popleft() # 값을 받아온다.
     poped.append(idx+1)
     if amount > 0: # 양수의 경우
-        Balloons.rotate(-(amount-1))
-    elif amount < 0:
-        Balloons.rotate(-amount)
+        Balloons.rotate(-(amount-1)) # idx의 양만큼 오른쪽으로 이동
+    elif amount < 0: # 음수의 경우
+        Balloons.rotate(-amount) # 오른쪽으로 양수 방향
 print(' '.join(map(str, poped)))

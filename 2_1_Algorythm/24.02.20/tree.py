@@ -11,10 +11,15 @@ par = [0] * (N+1)
 
 def pre_order(T):
     if T :
-        print(T, end = ' ')
+        print(T, end = ' ') # VLR
         pre_order(left[T])
         pre_order(right[T])
 
+def in_order(T):
+    if T :
+        in_order(left[T])
+        print(T, end = ' ') # VLR
+        in_order(right[T])
 
 for i in range(E):
     p, c = arr[2*i], arr[2*i+1]
@@ -29,4 +34,9 @@ while par[c] != 0:
     c = par[c]
 root = c
 print(root)
+print(left)
+print(right)
+print(par)
 pre_order(root)
+print()
+in_order(root)
