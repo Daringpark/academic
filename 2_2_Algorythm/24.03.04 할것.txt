@@ -1,11 +1,7 @@
-백준 네 번째 문제:
+백준 두 문제:
 1260 : DFS와 BFS
 https://www.acmicpc.net/problem/1260
 # 전체적인 자료구조 탐색하기
-
-2491 : 수열 (DP)
-https://www.acmicpc.net/problem/2491
-# 연속된 수에서 같거나 큰 쪽으로 최대 수열의 길이를 구하기
 
 2477 : 참외밭
 https://www.acmicpc.net/problem/2477
@@ -17,17 +13,21 @@ https://www.acmicpc.net/problem/2477
 https://www.acmicpc.net/problem/16957
 # R, C <= 500 // 배열을 새로 만들기에는 25000개의 데이터가 쓰일 수 있음
 # 2차원 리스트를 2개 만든다? >> 시간 초과 날 것
-# 재귀 X / 그럼 메모이제이션?
+# DP는 결국 메모이제이션 문제이다.
 
-DP 연습하기
-DFS
-- Nqueen (N,M)
-- permutation (무조건)
+Permutation 복습
+- 여러 가지 방식으로 구현 가능
 Stack 1-2
 - 당근
-- 러시아 국기
+
 Maze
 - DFS
 - BFS
+DFS
+- Nqueen (N,M)
 BFS
-- waterbomb (물놀이 하기) <<< 꼭
+- waterbomb (물놀이 하기)
+# 구조에 익숙해지자.
+
+꾸준히 DP 문제 복습하기
+# 메모이제이션 잘 활용하기
