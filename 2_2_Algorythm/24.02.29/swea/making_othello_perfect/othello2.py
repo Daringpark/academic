@@ -40,7 +40,7 @@ for tc in range(1, T+ 1):
                     if board[new_row][new_col] == color:
                         for x, y in temp_check:
                             board[x][y] = color
-        # for i in range(N):
-        #     print(*board[i])
-        # print()
+        for i in range(N):
+            print(*board[i])
+        print()
     print(f'#{tc} {checker_check()}')
