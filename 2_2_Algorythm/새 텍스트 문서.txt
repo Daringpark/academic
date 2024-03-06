@@ -1,0 +1,12 @@
+
+
+
+Tree >> VLR
+
+graph >>
+
+left list, right list
+[2 23 24], [57 60]
+
+lst[0
+]
