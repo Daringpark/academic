@@ -1,6 +1,6 @@
 
-def build_tree(preorder):
-    if not preorder:
+def build_tree(preorder): # 전위순회로 받은 리스트를 그래프로 그린다.
+    if not preorder: # 자식루트에 도달했을 경우
         return None
 
     root = preorder[0]
