@@ -4,12 +4,24 @@
 # 점이 나오는 경우 c
 # 겹치는 점이 하나도 없는 경우 d
 
+    # 상대 축 만들기 ??
+    # (3,10) -- (200,300)
+    # 198 200-3+1
+    
+    # 0 1 2 3
+    # 
+    
+    # 4 5 6 7
+    # 
 '''
 3 10 50 60 100 100 200 300
 '''
 
+import sys
+input = sys.stdin.readline
+
 # for _ in range(4):
-for _ in range(1):
+for _ in range(4):
     square = list(map(int, input().split()))
     max_X = max(square[2], square[6])
     min_X = min(square[0], square[4])
@@ -25,6 +37,9 @@ for _ in range(1):
         square[2*i] -= min_X
         square[2*i+1] -= min_Y
     
+
+
+    # 이렇게 하면, 평행하면서 겹치지 않은 사각형이 존재할 때, b나 a를 뽑음
     for x in range(square[0], square[2]):
         x_axis[x] += 1
     for x in range(square[4], square[6]):
@@ -35,29 +50,25 @@ for _ in range(1):
     for y in range(square[5], square[7]):
         y_axis[y] += 1
     
+    # print(*x_axis)
+    # print()
+    # print(*y_axis)
     
-    print(*x_axis)
-    print()
-    print(*y_axis)
-    
-    if 2 not in x_axis and 2 not in y_axis:
-        
-    
-    # 상대 축 만들기 ??
-    # (3,10) -- (200,300)
-    # 198 200-3+1
-    
-    # 0 1 2 3
-    # 
-    
-    # 4 5 6 7
-    # 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    if 2 not in x_axis and 2 not in y_axis: # 2가 둘 다 없을 때 겹치는 부위가 없을 때
+        print('d')
+    else:
+
+        if 2 not in x_axis and 2 in y_axis:
+            if y_axis.count(2) >= 2:
+                print('b')
+            else:
+                print('c')
+
+        elif 2 in x_axis and 2 not in y_axis:
+            if x_axis.count(2):
+                print('b')
+            else:
+                print('c')
+
+        else:
+            print('a')
