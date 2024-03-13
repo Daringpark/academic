@@ -1,0 +1,15 @@
+{% extends "articles/base.html" %}
+
+{% block content %}
+    {% comment %} <form action="https://search.naver.com/search.naver" method="GET"> {% endcomment %}
+    <form action="https://www.google.com/search" method="GET">
+        <label for="message">검색 : </label>
+        {% comment %} query라는 key에 value를 message로 받고 있다. {% endcomment %}
+        {% comment %} <input type="text" id = "message" name = "query"> {% endcomment %}
+        <input type="text" name="q" id="message">
+        <input type="submit">
+        
+    </form>
+
+
+{% endblock content %}

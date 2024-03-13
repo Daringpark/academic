@@ -1,5 +1,5 @@
 """
-URL configuration for ssafy project.
+URL configuration for firstpjt project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from articles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', views.index),
+    path('dinner/', views.dinner),
+    path('search/', views.search),
+    path('throw/', views.throw),
+    path('catch/', views.catch),
 ]
