@@ -1,0 +1,13 @@
+{% extends "articles/base.html" %}
+
+{% block content %}
+<div class = "container text-center">
+        <h1>Throw Page</h1>
+        <form action="/catch/" method = 'GET'>
+            <input type="text" id = "korean" name = "throw_1">
+            {% comment %} ID는 임의, name은 직접 받는 위치 {% endcomment %}
+            <input type="submit">
+        </form>
+    </div>
+
+{% endblock content %}

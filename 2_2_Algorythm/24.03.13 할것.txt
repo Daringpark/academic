@@ -1,14 +1,7 @@
 백준 두 문제:
-1260 : DFS와 BFS
-https://www.acmicpc.net/problem/1260
-# 전체적인 자료구조 탐색하기
+1202 보석 도둑
 
-2477 : 참외밭
-https://www.acmicpc.net/problem/2477
-# 구현, 기하학 (넓이 계산)
-<< 어떤 값을 빼야할 지를 체크하는게 중요하다
 
-<보류>
 16957 : 체스판 위의 공 # DP
 https://www.acmicpc.net/problem/16957
 # R, C <= 500 // 배열을 새로 만들기에는 25000개의 데이터가 쓰일 수 있음
