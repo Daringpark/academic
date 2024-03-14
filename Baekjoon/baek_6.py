@@ -1,21 +1,3 @@
-
-# 9086번 문자열
-# T = int(input())
-
-# for i in range(T) :
-#     word = input()
-#     print(word[0], word[-1], sep = '')
-
-# 2743번 단어 길이 재기
-# word = input()
-# if len(word) <= 100 : 
-#     print(len(word))
-
-# 2744번 대소문자 바꾸기
-# word = input()
-# if len(word) <= 100 :
-#     print(word.swapcase())
-
 # 1259번 팰린드롬수
 ### 44ms
 # word = None
