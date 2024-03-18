@@ -65,7 +65,7 @@ for _ in range(M):
         else:
             S.add(x)
     elif operation[0] == 'all':
-        S = set(range(1, 21))
+        S = set(range(1, 21)) # 이렇게 만드는게 더 빨랐다.
     elif operation[0] == 'empty':
         S = set()
 

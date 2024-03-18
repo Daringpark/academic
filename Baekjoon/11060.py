@@ -2,6 +2,7 @@
 10
 1 2 0 1 3 2 1 5 4 2
 '''
+# 초기 풀이
 
 import sys
 sys.stdin = open('11060.txt')
@@ -13,10 +14,7 @@ def make_graph(): # dictionary로 만들어야할듯
         for j in range(1, amount+1):
             graph[i+1].append((i+1+j))
 
-
-
 from collections import deque
-
 def BFS(start):
     # 그려진 그래프에서 Queue를 활용한 BFS를 한다.
     line = deque([start])

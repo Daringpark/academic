@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('chess_king.txt')
+sys.stdin = open('1063_output.txt')
 
 king, pon, N = input().split()
 move_dict = {'L' : [0,-1], 'R' : [0,1], 'T': [-1,0], 'B': [1,0],

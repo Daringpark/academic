@@ -1,0 +1,13 @@
+Permutation 복습
+- 여러 가지 방식으로 구현 가능
+Stack 1-2
+- 당근
+
+Maze
+- DFS
+- BFS
+DFS
+- Nqueen (N,M)
+
+꾸준히 DP 문제 복습하기
+# 메모이제이션 잘 활용하기

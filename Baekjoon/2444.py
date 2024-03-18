@@ -1,5 +1,7 @@
+# 2444번 별 찍기 - 7
+
 import sys
-sys.stdout = open('star_output.txt', 'w')
+sys.stdout = open('2444_output.txt', 'w')
 
 N = int(input())
 for i in range(2*N-1):

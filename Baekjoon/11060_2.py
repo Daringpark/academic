@@ -2,6 +2,7 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 
+# 정리된 풀이
 # 입력
 N = int(input())
 graph = list(map(int, input().split()))
