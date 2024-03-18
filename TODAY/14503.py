@@ -22,7 +22,6 @@ N * M
 drdc = [[-1,0], [0,1], [1,0], [0,-1]]
 # 후진 하는 경우 direction + 2 % 4
 
-
 def simulate():
     global Matrix
     cnt = 0
