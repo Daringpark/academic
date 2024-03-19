@@ -1,0 +1,11 @@
+1.
+- permutation 가지고 놀기
+- combination 가지고 놀기
+- subset으로 backtracking 연습하기
+
+2.
+- N-Queen 풀이하기
+
+3.
+Stack 1-2
+- 당근
