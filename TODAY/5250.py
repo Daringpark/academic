@@ -1,15 +1,16 @@
 import sys
 sys.stdin = open("5250.txt")
 
+from collections import deque
 def path_find():
     
     min_value = int(1e6)
     # BFS or dijkstra or DP
     D = [[(min_value)] * N for _ in range(N)]
     D[0][0] = 0 # 시작지점
-    q = [[0,0]]
+    q = deque([[0,0]])
     while q:
-        row, col = q.pop()
+        row, col = q.popleft()
         for dr, dc in [[-1,0], [0,1], [1,0], [0,-1]]:
             new_row = row + dr
             new_col = col + dc
