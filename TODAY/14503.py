@@ -32,17 +32,13 @@ def simulate():
     visited[row][col] = 1
     cnt = 1
     
-    
-    
-    
     # simulation 시작
     while True:
         flag = 0 # 매 번 청소가 이뤄졌는지 안 이뤄졌는지 볼 것이다.
 
         # 우선 청소부터 해보자.
         # 현재 칸에서 탐색을 실행한다.
-        for i in range(4):
-
+        for _ in range(4):
             # 청소를 진행하고 근처에 청소되지 않은 빈칸이 있는 경우 90도 회전
             # 0 > 3 > 2 > 1 > 0
             direction = (direction+3) % 4
@@ -53,9 +49,9 @@ def simulate():
                 # 새로 가는 지점이 방문하지도 않았고, 빈 공간인 경우 발견.
                 if not Matrix[new_row][new_col] and not visited[new_row][new_col]:
                     # 치워버려
-                    flag = 1
-                    visited[row][col] = 1
                     cnt += 1
+                    flag = 1
+                    visited[new_row][new_col] = 1
                     # 방향 유지 및 움직이기
                     row = new_row
                     col = new_col
@@ -67,17 +63,13 @@ def simulate():
             nd = (direction+2)%4
             new_row = row + drdc[nd][0]
             new_col = col + drdc[nd][1]
-            if 0 <= new_row < N and 0 <= new_col < M:
-                # 후진 불가능
-                if Matrix[new_row][new_col]:
-                    return cnt
-                else: # 후진 가능 지역만 새롭게 row, col을 받는다.
-                    row = new_row
-                    col = new_col
-            # 범위 밖은 기둥, 후진 불가능
-            else: return cnt
+            # 후진 불가능
+            if Matrix[new_row][new_col]:
+                return cnt
+            else: # 후진 가능 지역만 새롭게 row, col을 받는다.
+                row = new_row
+                col = new_col
         
-
 N, M = map(int, input().split()) # matrix 전개
 startrow, startcol, startdir = map(int, input().split()) # 시작 위치 + 보고 있는 방향
 # 0 1 2 3 북 동 남 서 (시계 방향)
@@ -86,5 +78,4 @@ Matrix = [list(map(int, input().split())) for _ in range(N)]
 # 1인 경우는 벽이다.
 # 내가 지나갔던 1번을 다시 갈 필요가 없는가?
 visited = [[0] * M for _ in range(N)] # 벽으로 만들어도 되는가?
-
 print(simulate())
