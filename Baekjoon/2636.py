@@ -1,10 +1,4 @@
-
-
-
-
-
 # 가로 세로 최대 100
-
 import sys
 input = sys.stdin.readline
 from collections import deque
@@ -17,7 +11,6 @@ def bfs():
 
     while q:
         row, col = q.popleft()
-
         for dr, dc in drdc:
             new_row = row + dr
             new_col = col + dc
@@ -28,17 +21,18 @@ def bfs():
                         melt_cheese.append([new_row, new_col]) # 따로 넣어서 한번에 녹이기
                     else:
                         q.append([new_row, new_col])
+                        
     for row, col in melt_cheese:
         matrix[row][col] = 0
+        
     return len(melt_cheese) # 녹인 치즈 개수를 반환
 
 drdc = [[-1,0], [0,1], [1,0], [0,-1]]
 M, N = map(int, input().split())
-
 matrix = [list(map(int, input().split())) for _ in range(M)]
-# 전체 메트릭스를 순회하면서 1을 뽑아내야함.
 cheese = 0 # 전체 치즈수를 계산해 냄
 for i in range(1, M-1):
+    # 전체 메트릭스를 순회하면서 1을 뽑아내야함.
     cheese += sum(matrix[i]) # 한 줄에 있는 치즈 개수를 확 계산
 
 time = 1 # 첫 시작이 1이 시작, while을 돌게 되는 순간 time은 1
