@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article</title>
+</head>
+<body>
+  <header>
+    <h1>Detail Page</h1>
+    <h3>{{article.pk}} 번째 글입니다.</h3>
+    <hr>
+  </header>
+
+  <main>
+    <div>
+      <p>제목 : {{article.title}}</p>
+      <p>내용 : {{article.content}}</p>
+      <p>작성일 : {{article.created_at}}</p>
+      <p>수정일 : {{article.updated_at}}</p>
+      <hr>
+    </div>
+    <a href="{% url "articles:edit" article.pk %}"> [Edit] </a>
+    <form action="{% url "articles:delete" article.pk%}" method = "POST">
+      {% csrf_token %}
+      <input type="submit" value = "Delete">
+    </form>
+    <a href="{% url "articles:index" %}"> [Back to the Main] </a>
+
+  </main>
+
+
+</body>
+</html>
