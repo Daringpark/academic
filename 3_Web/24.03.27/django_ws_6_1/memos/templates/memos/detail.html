@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+  <h1>Memo Detail</h1>
+</header>
+<hr>
+<main>
+  <p> 요약 : {{ memo.summary }} </p>
+  <p> 메모 : {{ memo.memo }} </p>
+  <p> 작성 시각 : {{ memo.created_at }} </p>
+  <p> 수정 시각 : {{ memo.updated_at }} </p>
+
+  <div style = 'display : flex; justify-content: left;'>
+    <form action="{% url "memos:edit" memo.pk %}" method = "GET">
+      <input type="submit" value = '수정'>
+    </form>
+    <form action="{% url "memos:delete" memo.pk %}" method = "POST">
+      {% csrf_token %}
+      <input type="submit" value = '삭제'>
+    </form>
+  </div>
+  <a href="{% url "memos:index" %}"> [Back] </a>
+</main>
+
+{% endblock content %}
+
+
+
+
+

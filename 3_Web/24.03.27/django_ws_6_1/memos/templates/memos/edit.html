@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+  <h1>EDIT</h1>
+</header>
+<hr>
+
+<main>
+  {% comment %} form method = "POST" {% endcomment %}
+  <form action="{% url "memos:edit" memo.pk %}" method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value = "변경">
+  </form>
+  <hr>
+  <a href="{% url "memos:detail" memo.pk %}"> [BACK] </a>
+
+</main>
+
+{% endblock content %}
