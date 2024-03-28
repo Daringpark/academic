@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>일기장</h1>
+</header>
+
+<main>
+  <a href="{% url "diaries:create" %}">[일기 작성]</a>
+  <ul>
+    {% for diary in diaries %}
+      <li> 
+        <p>{{diary.created_at}}</p>
+        <p>{{diary.content}}</p>
+      </li>
+    {% empty %}
+      <li>아직 작성된 일기가 없습니다.</li>
+    {% endfor %}
+  </ul>
+</main>
+
+{% endblock content %}

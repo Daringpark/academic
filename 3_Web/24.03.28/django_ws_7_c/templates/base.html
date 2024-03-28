@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>할 일 목록 관리 프로젝트</title>
+</head>
+
+
+<body>
+  {% load static %}
+  <a href="{% url "todos:index" %}"><img src="{% static "home.png" %}" alt="Home_img" width = 20, height = 20></a> | 
+  <a href="{% url "todos:create" %}">[CREATE]</a>
+  <a href="{% url "accounts:login" %}">[LOGIN]</a>
+  <a href="{% url "diaries:index" %}">[DIARY]</a>
+  {% block content %}
+  {% endblock content %}
+  <footer>
+    {% comment %} <a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a> {% endcomment %}
+  </footer>
+</body>
+</html>

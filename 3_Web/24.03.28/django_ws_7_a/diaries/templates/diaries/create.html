@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+  <h1>일기 작성하기</h1>
+</header>
+
+<main>
+  <form action="{% url "diaries:create" %}" method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value = "일기 작성">
+  </form>
+  <a href="{% url "diaries:index" %}"> [작성 취소] </a>
+</main>
+
+{% endblock content %}
