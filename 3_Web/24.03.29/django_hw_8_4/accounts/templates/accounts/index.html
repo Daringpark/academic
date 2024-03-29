@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>hello, {{ user.username }} </h3>
+  
+  <a href="{% url "accounts:login" %}"> [LOGIN] </a>
+  <form action="{% url "accounts:logout" %}" method = 'POST'>
+    {% csrf_token %}
+    <input type="submit" value = "LOGOUT">
+  </form>
+
+  <main>
+    <h1>전체 유저 목록</h1>
+    <ul>
+      {% for u in users %}
+        <li> {{u.username}} </li>
+        <hr>
+      {% empty %}
+        <li>현재 유저가 존재하지 않습니다.</li>
+      {% endfor %}
+    </ul>
+  </main>
+
+</body>
+</html>

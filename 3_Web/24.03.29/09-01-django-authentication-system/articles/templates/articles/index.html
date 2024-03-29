@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Hello, {{user.username}} </h3>
+  {% comment %} <h3>Hello, {{user}} </h3> {% endcomment %}
+  <h1>Articles</h1>
+  <div style = 'display:flex;'>
+    <a href="{% url "accounts:login" %}">LOGIN</a>
+    <form action="{% url "accounts:logout" %}" method = "POST" style = 'margin-left:16px;'>
+      {% csrf_token %}
+      <input type="submit" value = "로그아웃">
+    </form>
+  </div>
+  <hr>
+  <a href="{% url "articles:create" %}">CREATE</a>
+  <hr>
+  {% for article in articles %}
+    <p>글 번호: {{ article.pk }}</p>
+    <a href="{% url "articles:detail" article.pk %}">
+      <p>글 제목: {{ article.title }}</p>
+    </a>
+    <p>글 내용: {{ article.content }}</p>
+    <hr>
+  {% endfor %}
+</body>
+</html>
