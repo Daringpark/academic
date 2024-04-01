@@ -1,0 +1,1 @@
+git clone https://lab.ssafy.com/shoostar0611/django_ws_9_5

@@ -11,7 +11,7 @@ def combination(level, start): # 3가지 뽑기
     
 arr = [1,2,3,4,5]
 N = len(arr)
-K = 3 # level
+K = 0 # level
 # visited = [-1] * N
 res = [-1] * K
 combination(0, 0) # 초기 단이 level 0이니까

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<h3> 안녕하세요, {{ user.username }}님 ! </h3>
+<form action="{% url "accounts:logout" %}" method = "POST">
+  {% csrf_token %}
+  <input type="submit" value = " [LOGOUT] ">
+</form>
+{% else %}
+<a href="{% url "accounts:login" %}"> [LOGIN] </a>
+
+{% endif %}
+<h1>전체 유저 목록</h1>
+<ul>
+  {% for person in users %}
+    <li>{{ person.username }}</li>
+    <br>
+  {% empty %}
+    <li>현재 등록된 유저가 없습니다.</li>
+    <br>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
