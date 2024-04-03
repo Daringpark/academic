@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libraries</title>
+</head>
+<body>
+  <h1>저자 전체 목록</h1>
+
+  <ul>
+    {% for author in authors %}
+    <li>
+      <a href="{% url "libraries:author_detail" author.pk %}">
+        이름 : {{ author.name }}
+      </a>
+    </li>
+
+    <li>
+      <a href="#">
+        국적 : {{ author.nationality }}
+      </a>
+    </li>
+
+    <hr>
+    {% empty %}
+    <li> 아직 등록된 저자가 없습니다.</li>
+    
+    {% endfor %}
+  </ul>
+
+</body>
+</html>
