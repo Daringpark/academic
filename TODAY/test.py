@@ -25,6 +25,8 @@ def dfs1(level, sum_cost, cnt):
 
 8 62
 '''
+# 월말 2번 combination
+
 def dfs2(level, start):
     global max_bridge
     global min_cost

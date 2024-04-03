@@ -20,16 +20,6 @@ turn = 0
 # 
 
 
-
-
-
-
-
-
-
-
-
-
 # while len(Completed) != N:
 #     while len(Bridge) <= W or sum(Bridge) <= L:
 #         if Trucks:
