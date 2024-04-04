@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+    {% for todo in todos %}
+    <li> 작 성 : {{ todo.user.username }} </li>
+    <p>
+      <input type="checkbox" value="{{ todo.is_completed }}" {% if todo.is_completed %}checked{% endif %}>
+      <a href="{% url "todos:detail" todo.pk %}"> {{ todo.work }} </a>
+    </p>
+    {% empty %}
+    <li> 현재 할 일 목록에 할 일이 없습니다.</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock content %}

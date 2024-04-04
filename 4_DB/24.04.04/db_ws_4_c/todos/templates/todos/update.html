@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>이 곳에서 할 일을 생성합니다.</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="제출">
+  </form>
+
+  {% if todo.user != request.user %}
+  <p> 수정 권한이 없습니다.</p>
+  <p> 내용 수정을 하더라도 수정이 반영되지 않습니다. </p>
+  {% endif %}
+
+{% endblock content %}
