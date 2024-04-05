@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My WEATHER ANALYSIS PJT</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static "style.css" %}">
+
+</head>
+<body>
+  <a href="{% url "weathers:problem1" %}"> [문제 1] </a> |
+  <a href="{% url "weathers:problem2" %}"> [문제 2] </a> |
+  <a href="{% url "weathers:problem3" %}"> [문제 3] </a> |
+  <a href="{% url "weathers:problem4" %}"> [문제 4] </a>
+  {% block content %}
+  {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> 문제 1. 데이터 불러오기 </h1>
+<table>
+  <tr>
+    {% for col in df.columns %}
+    <th> {{ col }} </th>
+    {% endfor %}
+  </tr>
+  <tr>
+    {% for value in df.values %}
+    <tr>
+      {% for v in value %}
+      <td>
+        {{ v }}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tr>
+</table>
+
+{% endblock content %}
