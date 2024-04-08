@@ -1,9 +1,10 @@
 
-
 # 백준 16235 나무 제테크
 
+# 모듈
+import sys
+input = sys.stdin.readline
 # N = matrix 크기 (r, c는 1부터 시작해서 N까지)
-
 N, M, K = map(int, input().split())
 # N은 10이하, M은 100 이하, K는 1000이하
 
@@ -22,12 +23,9 @@ for _ in range(M):
     x, y, z = map(int, input().split()) # x, y는 나무의 위치 (r, c); z는 나무의 나이
     tree_matrix[x-1][y-1].append(z)
 
-
 drdc = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
-
 # for i in range(N):
 #     print(*tree_matrix[i])
-
 def spring():
     for row in range(N):
         for col in range(N):
@@ -35,21 +33,16 @@ def spring():
             if tree_matrix[row][col]: # 비어 있는 리스트가 아니라면,
                 tree_matrix[row][col].sort() # 우선 순위를 주기 위해서
                 n = len(tree_matrix[row][col])
-                # 여기 만들기
-                # for i in range(n): # 하나씩 꺼내서 양분을 없애자.
-                #     # 없애기 전에 현재 가지고 있는 양분이 0 이하로 떨어지는지
-                #     tree = tree_matrix[row][col][i]
-                #     if soil_matrix[row][col] - tree < 0:
-                #         break
-                #     else: # 계속 없애 가
-                #         soil_matrix[row][col] -= tree
-                #         tree_matrix[row][col][i] += 1
-                # # 슬라이싱 사용
-                # tree_matrix[row][col] = tree_matrix[row][col][:i+1]
-                # if i < n:
-                #     if tree_matrix[row][col][i+1:]:
-                #         death_tree[row][col].append(tree_matrix[row][col][i+1:])
-
+                temp_t = []
+                temp_d = []
+                for i in range(n):
+                    if soil_matrix[row][col] - tree_matrix[row][col][i] < 0:
+                        temp_d.append(tree_matrix[row][col][i])
+                    else:
+                        soil_matrix[row][col] -= tree_matrix[row][col][i]
+                        temp_t.append(tree_matrix[row][col][i]+1)
+                tree_matrix[row][col] = temp_t
+                death_tree[row][col] = temp_d
 
 # 봄에 죽은 나무는 현재 땅의 양분으로 추가된다.
 # 완료
@@ -58,7 +51,7 @@ def summer():
         for col in range(N):
             if death_tree[row][col] != []: # 리스트 값이 있으면, == 죽은 나무가 있으면
                 for death in death_tree[row][col]:
-                    soil_matrix[row][col] += int(death)/2
+                    soil_matrix[row][col] += int(death/2)
                 death_tree[row][col] = []
 
 # 나이가 5의 배수인 나무는 번식을 한다. (주변 8칸에 수명이 1인 나무 생성)
@@ -85,11 +78,19 @@ def winter():
 
 # K번의 순회 (1년 주기)
 # O(K*N**2 == 100000)
-for _ in range(K):
+for k in range(K):
     spring()
+    # 디버깅
+    # print(f'{k} spring')
+    # for i in range(N):
+    #     print(*tree_matrix[i])
     summer()
     fall()
     winter()
+    # 디버깅
+    # print(f'{k} winter')
+    # for i in range(N):
+    #     print(*soil_matrix[i])
 
 cnt = 0
 for i in range(N):
