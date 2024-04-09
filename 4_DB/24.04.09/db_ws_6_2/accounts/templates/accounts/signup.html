@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{% url "accounts:signup" %}" method = "POST">
+  {% csrf_token %}
+  {{ signupForm.as_p }}
+  <input type="submit" value = "회원가입 완료하기!">
+</form>
+
+{% endblock content %}
