@@ -1,6 +1,9 @@
 
 # 백준 9663 N-Queen
 
+import time
+start_time = time.time()
+
 # 해당 행렬에서 대각선과 겹치는 열이 있나 체크
 def check(level):
     for n in range(level):
@@ -32,3 +35,6 @@ cnt = 0
 visited = [0] * N
 dfs(0)
 print(cnt)
+end_time = time.time()
+exceution_time = end_time - start_time
+print(exceution_time)

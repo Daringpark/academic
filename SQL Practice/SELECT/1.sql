@@ -1,0 +1,6 @@
+
+-- 프로그래머스 SQL KIT SELECT 1번 문항
+-- CAR_TYPE은 'SUV인 DAILY_FEE를 평균 계산하여, 첫째 자리에서 반올림한 값의 COL값을 AVERAGE_FEE로 설정 
+
+-- 아래에 코드 작성
+SELECT ROUND(AVG(DAILY_FEE)) AS AVERAGE_FEE FROM CAR_RENTAL_COMPANY_CAR WHERE CAR_TYPE = 'SUV'
