@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const students = [
+      { name: 'Alice', scores: [85, 90, 95] },
+      { name: 'Bella', scores: [50, 80, 80] },
+      { name: 'Caley', scores: [90, 55, 35] },
+      { name: 'Dave', scores: [100, 100, 100] },
+      { name: 'Eve', scores: [88, 90, 92] }
+    ]
+    // 아래에 코드 작성
+
+    function makeAvgScores1(arr) {
+      let newStudents = {}
+      for (let i = 0; i < arr.length; i++) {
+        let sumValue = 0
+        const studentScores = arr[i].scores
+        for (let j = 0; j < studentScores.length; j++) {
+          sumValue += studentScores[j]
+        }
+        let resultScore = sumValue/studentScores.length
+        newStudents[`${arr[i].name}`] = resultScore 
+      }
+      return newStudents
+    }
+    function makeAvgScores2(arr) {
+      let newStudents = {}
+      for (student of students) {
+        let sumValue = 0
+        const studentScores = student.scores
+        for (score of studentScores) {
+          sumValue += score
+        }
+        let resultScore = sumValue/studentScores.length
+        newStudents[student.name] = resultScore
+      }
+      return newStudents
+    }
+
+    function makeAvgScores3(arr) {
+      let newStudents = {}
+      arr.forEach((student) => {
+        let sumValue = 0
+        student.scores.forEach((score) => sumValue += score)
+        let resultValue = sumValue/student.scores.length
+        newStudents[student.name] = resultValue
+      })
+      return newStudents
+    }
+
+    // reduce 사용
+    function makeAvgScores4(arr) {
+      let newStudents = {}
+      arr.forEach((student) => {
+        let sumValue = student.scores.reduce((sumValue, score) => sumValue + score)
+        newStudents[student.name] = sumValue / student.scores.length
+      })
+      return newStudents
+    }
+
+    /*
+      const array1 = [1, 2, 3, 4];
+
+      // 0 + 1 + 2 + 3 + 4
+      const initialValue = 0;
+      const sumWithInitial = array1.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        initialValue,
+      );
+
+      console.log(sumWithInitial);
+      // Expected output: 10
+    */
+
+    // 함수 호출
+    const result1 = makeAvgScores1(students)
+    const result2 = makeAvgScores2(students)
+    const result3 = makeAvgScores3(students)
+    const result4 = makeAvgScores3(students)
+    console.log(result1)
+    console.log(result2)
+    console.log(result3)
+    console.log(result4)
+  </script>
+</body>
+
+</html>
