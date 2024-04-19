@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class = 'my-3 mx-5'>
+
+  <h2> {{ user.username }} 님의 프로필 </h2>
+  <hr>
+  <div>
+    <div>
+      팔로워 : {{ user }}
+    </div>
+    <div>
+      팔로잉 : {{ user }}
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h2>작성한 영화 목록</h2>
+    <ul>
+      {% if written_movies %}
+      {% for movie in written_movies %}
+      <li>{{ moive.title }}</li>
+      {% endfor %}
+
+      {% else %}
+      <p>아직 작성한 영화가 없습니다.</p>
+      {% endif %}
+      
+
+    </ul>
+  </div>
+  <hr>
+  <div>
+    <h2>좋아요 누른 영화 목록</h2>
+    <ul>
+      {% if likes_movies %}
+      {% for movie in likes_movies %}
+      <li>{{ moive.title }}</li>
+      {% endfor %}
+      
+      {% else %}
+      <p>아직 좋아요 누른 영화가 없습니다.</p>
+      {% endif %}
+
+    </ul>
+  </div>
+
+
+  
+</main>
+
+{% endblock content %}
