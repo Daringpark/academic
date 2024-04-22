@@ -1,7 +1,0 @@
-#settings.py
-
-ALLOWED_HOSTS = ['*']
-X_FRAME_OPTIONS = 'ALLOWALL'
-
-
-pip install -r requirements.txt

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" class="input-text">
+  <button id="btn">+</button>
+  <ul></ul>
+
+  <script>
+    const inputTag = document.querySelector('.input-text')
+    const btnTag = document.querySelector('#btn')
+    const ulTag = document.querySelector('ul')
+    
+    // Todo를 추가하는 함수를 만들어준다.
+    const addTodo = function (event) {
+      // 먼저 작성할 입력 데이터를 받아온다.
+      const inputData = inputTag.value
+
+      // inputData.trim() == strip() 문자열이 존재한다면, 기존과 똑같이 이벤트 진행
+      if (inputData.trim()) {
+      // 그 다음 liTag를 만들어준다.
+      const liTag = document.createElement('li')
+      // textContent를 덧씌워준다.
+      liTag.textContent = inputData
+      // 기존 html에 있는 ulTag에 작성한 liTag를 appendChild해준다.
+      ulTag.appendChild(liTag)
+      // inputTag를 다음에 도 사용하기 위해서 초기화해준다.
+      inputTag.value = ''
+      } else {
+      alert('할 일을 먼저 입력해주세요!')}
+      // 빈 문자열 혹은 입력이 없을 경우, 경고 대화상자를 띄운다.
+    }
+    
+    // 버튼을 누를 때, list에 추가되는 것이기 때문에 버튼 태그에 이벤트 추가
+    btnTag.addEventListener('click', addTodo)
+
+  </script>
+</body>
+
+</html>
