@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="" alt="">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const URL = 'https://api.thecatapi.com/v1/images/search'
+    const bodyTag = document.querySelector('body')
+
+    axios({
+      method: 'get',
+      url: URL
+    })
+    .then((response) =>{
+      const file = response.data[0].url
+      const newImgTag = document.createElement('img')
+      newImgTag.setAttribute('src', file)
+      newImgTag.setAttribute('alt', 'random_cat_image')
+
+      bodyTag.appendChild(newImgTag)
+    })
+      .catch((error) => {
+        console.log(error)
+      })
+  </script>
+</body>
+
+</html>
