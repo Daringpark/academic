@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Todo Application</h1>
+
+    <p>Completed Count: {{ count }}</p>
+
+    <form @submit.prevent="addTodo">
+      <select v-model="todoFilter">
+        <option value="all">전체 todo</option>
+        <option value="unCompleted" selected>미완료 todo</option>
+        <option value="Completed">완료 todo</option>
+      </select>
+    <input type="text" v-model="newTodo">
+      <input type="submit" value="Add">
+    </form>
+
+    <ul>
+      <li v-for="todo in UpdatedTodos" :key="todo.id">
+        <input type="checkbox" v-model="todo.isCompleted">
+        <span :class="{'is-completed': todo.isCompleted }">{{ todo.text }}</span>
+        <button @click="deleteTodo(todo.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, computed, watch } = Vue
+
+    const app = createApp({
+      setup() {
+        const todos = ref([])
+        const newTodo = ref('')
+        const todoFilter = ref('unCompleted')
+        const count = ref(0)
+
+        const addTodo = function () {
+          if (newTodo.value.trim() !== '') {
+            const todoObj = {
+              id: Date.now(),
+              text: newTodo.value,
+              isCompleted: false
+            }
+            todos.value.push(todoObj)
+            newTodo.value = ''
+          }
+        }
+
+        const deleteTodo = function (todoId) {
+          const index = todos.value.findIndex(todo => todo.id === todoId)
+          if (index !== -1) {
+            todos.value.splice(index, 1)
+          }
+        }
+
+        watch(todos.value, (newTodos) => {
+          // filter
+          count.value = newTodos.filter((updatedTodo)=>updatedTodo.isCompleted).length, {deep : true}
+          // count.value = newTodos.filter((updatedTodo)=>updatedTodo.isCompleted).reduce((acc, item)=>acc+1, 0)
+        })
+
+        const UpdatedTodos = computed(() => {
+          console.log(todoList.value)
+          if (todoFilter.value === 'unCompleted') return todos.value.filter((todo) => !todo.isCompleted)
+          else if (todoFilter.value === 'Completed') return todos.value.filter((todo) => todo.isCompleted) 
+          else return todos.value
+        })
+
+        return {
+          count,
+          todos,
+          newTodo,
+          todoFilter,
+          UpdatedTodos,
+          addTodo,
+          deleteTodo
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
+`

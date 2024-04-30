@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>남은 할 일</h2>
+    <p>{{ restOfTodos }}</p>
+    <p>{{ getRestOfTodos() }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 'computed'라는 계산된 속성을 정의하는 함수
+    const { createApp, ref , computed } = Vue
+
+    const app = createApp({
+      setup() {
+        const todos = ref([
+          { text: 'Vue 실습' },
+          { text: '자격증 공부' },
+          { text: 'TIL 작성' }
+        ])
+
+        // 다른 함수 정의랑 똑같이 정의한다.
+        const restOfTodos = computed(() => {
+          // todos는 ref함수이기에 value로 접근해야 내용을 배열을 확인할 수 있다.
+          // computed의 속성은 의존된 반응형 데이터를 자동으로 추적한다.
+          return todos.value.length > 0 ? '아직 남았다~~' : '퇴근!'
+        })
+
+        // method로도 같은 처리를 할 수 있을 것이다.
+        const getRestOfTodos = function () {
+          return todos.value.length > 0 ? '아직남았다.' : '퇴근!!'
+        }
+        // computed 속성은 의존된 반응형 데이터를 기반으로 캐시(cached)된다.
+        // 의존하는 데이터가 변경된 경우에만 재평가된다.
+        // 즉, 데이터 혹은 결과를 "다시" 계산하지 않고 바로 값으로 접근할 수 있음
+        // method 호출은 다시 렌더링이 발생할 때마다 함수를 실행한다.
+
+        // computed는 의존 데이터에 따라서 결과가 바뀌는 계산 속성을 만들때 유용하다
+        // 계산 결과를 캐싱해서 중복 계산을 방지
+        // Q. 중복 계산을 방지한다는건 서버 부하를 줄이기 위함인가?
+        // 캐시 -> 임시 데이터 저장소이며, 바로바로 끌어다 쓸 수 있는 데이터를 만들어 놓는 것
+
+        // 단순 특정 동작을 수행하는 함수를 정의할 때
+        // 데이터 의존성을 따지지 않고, 항상 동일한 결과를 반환하는게 함수이다.
+
+
+
+
+        return {
+          todos,
+          restOfTodos,
+          getRestOfTodos,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

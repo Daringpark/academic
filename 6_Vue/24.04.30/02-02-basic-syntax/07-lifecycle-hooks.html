@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="count++">Add 1</button>
+    <p>Count: {{ count }}</p>
+    <p>{{ message }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, onMounted, onUpdated } = Vue
+
+    const app = createApp({
+      setup() {
+        const count = ref(0)
+        const message = ref(null)
+
+
+        onMounted(() => {
+          console.log('mounted')
+        })
+
+        onUpdated(() => {
+          message.value = 'updated!'
+        })
+
+
+        return {
+          count,
+          message
+        }
+      },
+    })
+    // lifecycle Hooks에 등록된 콜백 함수들을 인스턴스와 자동으로 연결한다.
+    // lifecycle hook을 이용하면, 렌더링을 미리 하나 시켜놓고, 새로 updated할 때 변경되는 것으로 스타일링 할 수 있다.
+    app.mount('#app')
+
+  </script>
+</body>
+
+</html>
