@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- [Bad] v-for with v-if -->
+    <!-- <ul>
+      <li v-for="todo in todos" v-if="!todo.isComplete" :key="todo.id">
+        v-if를 먼저 처리하고 v-for를 처리하기 때문에 todo가 뭔지 정의가 안되었다고 한다.
+        {{ todo.name }}
+      </li>
+    </ul> -->
+
+    <!-- [Good 1] v-for with v-if (computed)-->
+    <ul>
+      <li v-for="todo in completeTodos" :key="todo.id">
+        {{ todo.name }}
+      </li>
+    </ul>
+
+    <!-- [Good 2] v-for with v-if -->
+    <!-- 개인적으로 명시적인 코드는 이것인 것 같다. -->
+    <ul>
+      <template v-for="todo in todos" :key="todo.id">
+        <li v-if="!todo.isComplete">
+          {{ todo.name }}
+        </li>
+      </template>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, computed } = Vue
+
+    const app = createApp({
+      setup() {
+        let id = 0
+
+        const todos = ref([
+          { id: id++, name: '복습', isComplete: true },
+          { id: id++, name: '예습', isComplete: false },
+          { id: id++, name: '저녁식사', isComplete: true },
+          { id: id++, name: '노래방', isComplete: false }
+        ])
+
+        // 반응형 함수를 사용해서 작성할 수도 있다. 즉, 미리 todos를 뽑아준다는 것
+        const completeTodos = computed(() => {
+          return todos.value.filter((todo) => !todo.isComplete)
+          // !false = true인 것을 filter해서 todos에 넣어준다. (아직 completed되지 않은 항목만)
+        })
+
+        return {
+          todos,
+          completeTodos
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
