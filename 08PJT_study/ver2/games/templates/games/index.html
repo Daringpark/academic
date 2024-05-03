@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UpDownGame</title>
+</head>
+<body>
+  <h1>[ Game ]</h1>
+
+  <h3>1 ~ 100까지의 숫자를 한번 맞춰보세요!</h3>
+  <form id="guessForm" method="POST">
+    {% csrf_token %}
+    <label for="userGuess">Guess the Number: </label>
+    <input type="nubmer" id="userGuess" required>
+    <button type="submit">Guess!!</button>
+  </form>
+
+  <p id="reactionTag">{{ result_message }}</p>
+  <p>{{ target_number }}</p>
+  
+  <script>
+    const formTag = document.querySelector('#guessForm')
+    const csrfToken = document.querySelector('input[name=csrfmiddlewaretoken]').value
+    const sessionPk = {{ session_pk }}
+
+    formTag.addEventListener('submit', function() {
+      event.preventDefault()
+      const userGuessNumber = document.querySelector('#userGuess').value
+      const data = {
+        'session_pk' : sessionPk,
+        'userGuess' : userGuessNumber
+      }
+      const url = `/games/guess/${sessionPk}/`
+
+      axios.post(url, data, {
+        headers : {
+          'Content-type': 'application/x-www-form-urlencoded',
+          'X-CSRFToken' : csrfToken,
+        }
+      })
+        .then((response) => {
+          const resultMessage = document.querySelector('#reactionTag')
+          resultMessage.innerHTML = response.data.message
+          if (response.data.is_correct) {
+            resultMessage.innerHTML += `<br>축하합니다! <strong>${response.data.attempts+1}</strong>번 시도에 맞췄습니다!`
+          }
+
+
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>
