@@ -4,21 +4,19 @@ import shutil
 import os
 
 # 데이터를 읽을 식별자 확인
-identification_key = 'MainRoad_H02'
+identification_key = ''
 
 # 돌리기 전에 key값을 확인해주세요.
 # JSON 파일들이 있는 디렉토리
-directory_path = f'./raw/{identification_key}/annotation/'
-img_path = f'./raw/{identification_key}/image/'
+directory_path = f'./3.raw/{identification_key}/annotation/'
+img_path = f'./3.raw/{identification_key}/image/'
 
 # Json 에서 찾을 pothole
-desired_value = "Pothole on road"
 file_count = 0
 count = 0
 
-print(os.getcwd())
-os.mkdir(f'{directory_path}/2.Ano')
-os.mkdir(f'{img_path}/1.Images')
+os.makedirs(f'{directory_path}/2.Annotations', exist_ok=True)
+os.makedirs(f'{img_path}/1.Images', exist_ok=True)
 
 def find_value_in_json_file(file_path):
     global count
@@ -64,5 +62,5 @@ for file_path in json_files:
     file_count += 1
     find_value_in_json_file(file_path)
 
-print('Total : ', file_count, 'is checked.')
-print('Total : ', count, 'is moved.')
+print('Total :', file_count, 'is checked.')
+print('Total :', count, 'is moved.')
