@@ -1,0 +1,1 @@
+python test.py --device 0 --img 1024 --conf 0.6 --out-thres 0.6 --batch 16 --data ./data/vehicle.yaml --names ./data/vehicle.names --cfg ./cfg/yolov4.cfg --save_dir ./images/output/ --weights ./models/pt/best_yolov4-truck_total_20211228.pt

@@ -1,0 +1,11 @@
+# img 640 (최대 길이는 640으로 맞추고, 기존에 있던 1920 -> 640 비율 조정)
+# batch, epochs는 train 수치에 맞게
+# data -> 우리가 판별해야하는 class (정상 차량, 과적 차량, 포트홀)
+# cfg -> yolov5의 모델 아키텍처를 어떻게 분류할 것인가
+# weights -> 기존의 모델을 참고할 것인가 (기본 모델을 넣어줄 것이다...)
+
+# epochs는 학습 양을 결정 짓기도 하기에 테스트 용으로 작게 잡아도 된다.
+python train.py --img 640 --batch 16 --epochs 4 --data dataset.yaml --cfg yolov5s.yaml --weights yolov5s.pt
+
+# detect 확인
+python detect.py --img 640 --weights './runs/train/exp/weights/best.pt' --source './data/images'
