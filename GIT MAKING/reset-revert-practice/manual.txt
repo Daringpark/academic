@@ -1,8 +1,0 @@
-git reset --soft '<Id:xxxx>'
-git reset --hard '<Id:xxxx>'
-git reset --mixed '<Id:xxxx>'
-
-git revert 7f6c24c 006dc87 35518b4
-git revert 7f6c24c..355518b4
-git revert --no-edit 7f6c24c
-git revert --no-commit 7f6c24c
